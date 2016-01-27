@@ -21,8 +21,8 @@ public class OfflineTest {
 		OfflineTest ot = new OfflineTest();
 		int[] num_of_queries = new int[]{100000,120000,140000,180000};
 //		int[] num_of_queries = new int[]{120000};
-		int[] Ks = new int[]{10,20,30,40};
-//		int[] Ks = new int[]{20};
+//		int[] Ks = new int[]{10,20,30,40};
+		int[] Ks = new int[]{20};
 		int[] Ps = new int[]{100, 400};
 		for(int P : Ps) {
 			conf.Constants.P = P;
@@ -30,7 +30,7 @@ public class OfflineTest {
 				for(int K : Ks) {
 					System.out.println(query + "\t" + K+"\t"+P);
 					conf.Constants.K = K;
-					ot.performanceTest("nba-fullquery.txt",query);
+					ot.performanceTest("data/nba-fullquery.txt",query);
 				}
 			}
 		}
@@ -69,10 +69,10 @@ public class OfflineTest {
 		}
 		//at this step, eb has popped-up
 		ic = new IndexCreation(eb);
-//		timer = System.currentTimeMillis();
+		timer = System.currentTimeMillis();
 		ic.buildIndex();
-//		time_taken += System.currentTimeMillis() - timer;
-//		System.out.println("Indexing:\t"+time_taken+" ms\t"+(count/(1.0*time_taken)) +"K/s");
+		time_taken += System.currentTimeMillis() - timer;
+		System.out.println("Indexing:\t"+time_taken+" ms\t"+(count/(1.0*time_taken)) +"K/s");
 		time_taken = 0;
 		timer = System.currentTimeMillis();
 		sm = new SketchMining(ic.getWi());

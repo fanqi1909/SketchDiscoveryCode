@@ -78,13 +78,13 @@ public class IndexTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-			int[] queries = new int[] {80000,100000, 120000, 140000, 160000,180000};
+			int[] queries = new int[] {80000};
 			int[] Ps = new int[]{120};
 			for(int num_of_queries : queries) {
 				for(int P : Ps) {
 					System.out.println(num_of_queries + "\t" + P);
 					conf.Constants.P = P;
-					String file_name ="nba-fullquery.txt";
+					String file_name ="data/nba-fullquery.txt";
 					IndexTest it2 = new IndexTest(BruteIndexCreation.class);
 					it2.runTest(file_name, num_of_queries);
 					IndexTest it4 = new IndexTest(IndexCurrentPrune.class);

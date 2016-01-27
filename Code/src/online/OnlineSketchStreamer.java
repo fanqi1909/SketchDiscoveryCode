@@ -29,7 +29,6 @@ public class OnlineSketchStreamer implements Streamer {
 	public OnlineSketchStreamer() {
 		sketches = new  HashMap<>();
 		wi = new WindowIndex(128);
-//		CSS = new HashMap<>();
 		OSS = new HashMap<>();
 		ssums = new HashMap<>();
 		eb = new EventsBag();
